@@ -1,7 +1,5 @@
 @import '~normalize.css';
-
 @import '_variables';
-@import 'modules/hello.scss';
 
 html {
   box-sizing: border-box;
@@ -14,10 +12,38 @@ html {
 }
 
 body {
-  background: $wtf;
-  color: #fff;
+  background: $background;
+  color: $text;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+}
+
+.navigation {
+  &__info-button {
+    position: absolute;
+    z-index: 5;
+    top: 3vh;
+    left: 3vw;
+    width: $icon-size;
+    height: $icon-size;
+    cursor: pointer;
+  }
+  &__burger-button {
+    position: absolute;
+    z-index: 5;
+    top: 3vh;
+    right: 3vw;
+    width: $icon-size;
+    height: $icon-size;
+    cursor: pointer;
+  }
+  &__content {
+    width: 100vw;
+    height: 100vh;
+    border: 5px solid #000;
+    display: none;
+  }
 }
