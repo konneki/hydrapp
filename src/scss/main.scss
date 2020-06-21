@@ -1,4 +1,8 @@
+$hamburger-padding-x: 0 !default;
+$hamburger-padding-y: 0 !default;
+
 @import '~normalize.css';
+@import '~hamburgers/_sass/hamburgers/hamburgers.scss';
 @import '_variables';
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
 
@@ -64,8 +68,53 @@ body {
     }
   }
 }
+.hamburger {
+  position: absolute;
+  z-index: 5;
+  top: 3vh;
+  right: 3vw;
+  width: $icon-size;
+  height: $icon-size;
+  cursor: pointer;
+}
 
 .navigation {
+  &__content {
+    width: 100vw;
+    height: 100vh;
+    border: 5px solid #000;
+    position: absolute;
+    top: 0;
+    display: flex;
+    background-color: $background;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__information-content {
+    width: 100vw;
+    height: 100vh;
+    border: 5px solid #000;
+    position: absolute;
+    top: 0;
+    display: flex;
+    background-color: $background;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__history-content {
+    width: 100vw;
+    height: 100vh;
+    border: 5px solid #000;
+    position: absolute;
+    top: 0;
+    display: flex;
+    background-color: $background;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  }
   &__info-button {
     position: absolute;
     z-index: 5;
@@ -75,19 +124,27 @@ body {
     height: $icon-size;
     cursor: pointer;
   }
-  &__burger-button {
-    position: absolute;
-    z-index: 5;
-    top: 3vh;
-    right: 3vw;
-    width: $icon-size;
-    height: $icon-size;
-    cursor: pointer;
+  &__text {
+    font-size: 4vw;
+    &--big {
+      font-size: 6vw;
+    }
+    &--small {
+      font-size: 2vw;
+      font-weight: 400;
+    }
+    &--history {
+      font-size: 1.6vw;
+      font-weight: 400;
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
-  &__content {
-    width: 100vw;
-    height: 100vh;
-    border: 5px solid #000;
-    display: none;
+  &__information-text {
+    width: 60vw;
+    font-weight: 400;
+    font-size: 1.3vw;
   }
+  // &__history-text {
+  // }
 }

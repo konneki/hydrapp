@@ -4,6 +4,11 @@ import '../scss/main.scss';
 // import {registerSW} from './pwa.js';
 // registerSW();
 
-/* place your code below */
+const add = document.querySelector('.flex__add--js');
+const subtract = document.querySelector('.flex__subtract--js');
+const info = document.querySelector('.navigation__info-button');
+const hamburger = document.querySelector('.hamburger');
 
-console.log('HELLO 🚀')
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('is-active');
+});
