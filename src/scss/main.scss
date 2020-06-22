@@ -59,7 +59,7 @@ body {
       align-self: center;
       grid-column-start: 1;
       grid-row-start: 1;
-      font-size: 14vw;
+      font-size: 14rem;
     }
     &-glass {
       width: 22vw;
@@ -103,17 +103,48 @@ body {
     align-items: center;
     flex-direction: column;
   }
-  &__history-content {
-    width: 100vw;
-    height: 100vh;
-    border: 5px solid #000;
-    position: absolute;
-    top: 0;
-    display: flex;
-    background-color: $background;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+  &__history {
+    &-content {
+      background-color: $background;
+      width: 100vw;
+      height: 100vh;
+      border: 5px solid #000;
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &-element {
+      background-color: #ebe9e9;
+      border-radius: 10px;
+      transition: background-color 300ms ease-in-out;
+      display: flex;
+      flex-direction: column;
+      padding: 7%;
+      &-header {
+        font-size: 1.2em;
+        margin: 0;
+        text-align: center;
+      }
+      &-text {
+        font-size: 1em;
+        font-weight: 400;
+      }
+      &:hover {
+        background-color: #d6d6d6;
+      }
+    }
+    &-grid {
+      width: 80vw;
+      height: 80vh;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      column-gap: 10px;
+      row-gap: 10px;
+      overflow: scroll;
+    }
   }
   &__info-button {
     position: absolute;
