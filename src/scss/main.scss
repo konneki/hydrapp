@@ -91,6 +91,8 @@ body {
     align-items: center;
     flex-direction: column;
     visibility: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
   }
   &__information-content {
     width: 100vw;
@@ -104,6 +106,8 @@ body {
     align-items: center;
     flex-direction: column;
     visibility: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
   }
   &__history {
     &-content {

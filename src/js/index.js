@@ -95,10 +95,12 @@ let toggleMenuStatus = false;
 window.toggleMenu = function () {
   if (toggleMenuStatus === false) {
     menuButton.style.visibility = 'visible';
+    menuButton.style.opacity = '1';
     percentageCalc();
     toggleMenuStatus = true;
   } else if (toggleMenuStatus === true) {
     menuButton.style.visibility = 'hidden';
+    menuButton.style.opacity = '0';
     toggleMenuStatus = false;
   }
 };
@@ -107,9 +109,11 @@ let toggleInfoStatus = false;
 window.toggleInfo = function () {
   if (toggleInfoStatus === false) {
     infoButton.style.visibility = 'visible';
+    infoButton.style.opacity = '1';
     toggleInfoStatus = true;
   } else if (toggleInfoStatus === true) {
     infoButton.style.visibility = 'hidden';
+    infoButton.style.opacity = '0';
     toggleInfoStatus = false;
   }
 };
