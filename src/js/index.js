@@ -28,6 +28,12 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('is-active');
 });
 
+// calculate percentage based on counter value
+const percentageCalc = function () {
+  percentage = (counter / 15) * 100;
+  percentCounter.innerHTML = `${Math.round(percentage)}%`;
+};
+
 // store value in localstorage with todays key
 const entry = localStorage.getItem(key);
 let result;
@@ -38,6 +44,7 @@ if (entry) {
       counterSelector[i].innerHTML = result.value;
     }
     counter = result.value;
+    percentageCalc();
   } else {
     // if there is nothing in key, value = '0' (new day)
     counter = 0;
@@ -77,25 +84,18 @@ const decrement = function () {
 // add eventlisteners to buttons and increment or decrement by 1
 add.addEventListener('click', increment);
 window.addEventListener('keyup', function (event) {
-  if (event.keyCode === 187) {
-    console.log('click');
+  if (event.keyCode === 187 || event.keyCode === 38 || event.keyCode === 39) {
     event.preventDefault();
     increment();
   }
 });
 subtract.addEventListener('click', decrement);
 window.addEventListener('keyup', function (event) {
-  if (event.keyCode === 189) {
-    console.log('click');
+  if (event.keyCode === 189 || event.keyCode === 40 || event.keyCode === 37) {
     event.preventDefault();
     decrement();
   }
 });
-
-const percentageCalc = function () {
-  percentage = (counter / 15) * 100;
-  percentCounter.innerHTML = `${Math.round(percentage)}%`;
-};
 
 // menu toggle
 let toggleMenuStatus = false;
