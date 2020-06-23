@@ -7,13 +7,14 @@ import '../scss/main.scss';
 const add = document.querySelector('.flex__add--js');
 const subtract = document.querySelector('.flex__subtract--js');
 const info = document.querySelector('.navigation__info-button');
-const navigation = document.querySelector('.navigation');
+const menuButton = document.querySelector('.navigation__content');
 const historyButton = document.querySelector('.navigation__text--history--js');
 const historyElements = document.querySelector('.navigation__history-grid');
 
 const hamburger = document.querySelector('.hamburger');
 
-let counterSelector = document.querySelector('.main-counter--js');
+let counterSelector = document.querySelectorAll('.main-counter--js');
+let counterSelectorLength = counterSelector.length;
 let counter = 0;
 
 const key = new Date().toISOString().slice(0, 10);
@@ -30,7 +31,16 @@ let navHistoryArticle =
   '<article class="navigation__history-element"><h2 class="navigation__history-element-header">%date%</h2><p class="navigation__history-element-text"> Cups drunk: %value%<span class="cups-count--js">8</span></p><p class="navigation__history-element-text">Daily water intake: <span class="percentage--js">20%</span></p></article>';
 
 // add beforeend of navHistory to navigation
-
+let toggleMenuStatus = false;
+window.toggleMenu = function () {
+  if (toggleMenuStatus === false) {
+    menuButton.style.visibility = 'visible';
+    toggleMenuStatus = true;
+  } else if (toggleMenuStatus === true) {
+    menuButton.style.visibility = 'hidden';
+    toggleMenuStatus = false;
+  }
+};
 // add afterbegin of navHistoryArticle to historyElements
 
 hamburger.addEventListener('click', () => {
@@ -44,21 +54,27 @@ let result;
 if (entry) {
   result = JSON.parse(entry);
   if (result.day === keyDay) {
-    counterSelector.innerHTML = result.value;
+    for (let i = 0; i < counterSelectorLength; i++) {
+      counterSelector[i].innerHTML = result.value;
+    }
     counter = result.value;
   } else {
     // if there is nothing in key, value = '0' (new day)
     counter = 0;
   }
 } else {
-  counterSelector.innerHTML = counter;
+  for (let i = 0; i < counterSelectorLength; i++) {
+    counterSelector[i].innerHTML = counter;
+  }
 }
 
 // add eventlisteners to buttons and increment or decrement by 1
 add.addEventListener('click', () => {
   counter += 1;
   if (counter >= 0) {
-    counterSelector.innerHTML = counter;
+    for (let i = 0; i < counterSelectorLength; i++) {
+      counterSelector[i].innerHTML = counter;
+    }
     localStorage.setItem(
       key,
       JSON.stringify({
@@ -74,7 +90,9 @@ add.addEventListener('click', () => {
 subtract.addEventListener('click', () => {
   counter -= 1;
   if (counter >= 0) {
-    counterSelector.innerHTML = counter;
+    for (let i = 0; i < counterSelectorLength; i++) {
+      counterSelector[i].innerHTML = counter;
+    }
     localStorage.setItem(
       key,
       JSON.stringify({

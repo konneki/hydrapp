@@ -90,6 +90,8 @@ body {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+    visibility: hidden;
+    z-index: 0;
   }
   &__information-content {
     width: 100vw;
