@@ -17,6 +17,7 @@ let percentCounter = document.querySelector('.percent-counter--js');
 let counterSelector = document.querySelectorAll('.main-counter--js');
 let counterSelectorLength = counterSelector.length;
 let counter = 0;
+let percentage;
 
 const key = new Date().toISOString().slice(0, 10);
 const keyDay = key.slice(8, 10);
@@ -47,9 +48,7 @@ if (entry) {
   }
 }
 
-// add eventlisteners to buttons and increment or decrement by 1
-add.addEventListener('click', () => {
-  counter += 1;
+const updateUI = function () {
   if (counter >= 0) {
     for (let i = 0; i < counterSelectorLength; i++) {
       counterSelector[i].innerHTML = counter;
@@ -62,31 +61,39 @@ add.addEventListener('click', () => {
         value: counter,
       })
     );
+    percentageCalc();
   } else {
     counter = 0;
   }
-});
-subtract.addEventListener('click', () => {
+};
+const increment = function () {
+  counter += 1;
+  updateUI();
+};
+const decrement = function () {
   counter -= 1;
-  if (counter >= 0) {
-    for (let i = 0; i < counterSelectorLength; i++) {
-      counterSelector[i].innerHTML = counter;
-    }
-    localStorage.setItem(
-      key,
-      JSON.stringify({
-        day: keyDay,
-        month: keyMonth,
-        value: counter,
-      })
-    );
-  } else {
-    counter = 0;
+  updateUI();
+};
+// add eventlisteners to buttons and increment or decrement by 1
+add.addEventListener('click', increment);
+window.addEventListener('keyup', function (event) {
+  if (event.keyCode === 187) {
+    console.log('click');
+    event.preventDefault();
+    increment();
+  }
+});
+subtract.addEventListener('click', decrement);
+window.addEventListener('keyup', function (event) {
+  if (event.keyCode === 189) {
+    console.log('click');
+    event.preventDefault();
+    decrement();
   }
 });
 
-const percentageCalc = () => {
-  let percentage = (counter / 15) * 100;
+const percentageCalc = function () {
+  percentage = (counter / 15) * 100;
   percentCounter.innerHTML = `${Math.round(percentage)}%`;
 };
 
@@ -96,7 +103,6 @@ window.toggleMenu = function () {
   if (toggleMenuStatus === false) {
     menuButton.style.visibility = 'visible';
     menuButton.style.opacity = '1';
-    percentageCalc();
     toggleMenuStatus = true;
   } else if (toggleMenuStatus === true) {
     menuButton.style.visibility = 'hidden';
