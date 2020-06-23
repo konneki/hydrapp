@@ -6,7 +6,7 @@ import '../scss/main.scss';
 
 const add = document.querySelector('.flex__add--js');
 const subtract = document.querySelector('.flex__subtract--js');
-const info = document.querySelector('.navigation__info-button');
+const infoButton = document.querySelector('.navigation__information-content');
 const menuButton = document.querySelector('.navigation__content');
 const historyButton = document.querySelector('.navigation__text--history--js');
 const historyElements = document.querySelector('.navigation__history-grid');
@@ -30,7 +30,7 @@ let navHistory =
 let navHistoryArticle =
   '<article class="navigation__history-element"><h2 class="navigation__history-element-header">%date%</h2><p class="navigation__history-element-text"> Cups drunk: %value%<span class="cups-count--js">8</span></p><p class="navigation__history-element-text">Daily water intake: <span class="percentage--js">20%</span></p></article>';
 
-// add beforeend of navHistory to navigation
+// menu toggle
 let toggleMenuStatus = false;
 window.toggleMenu = function () {
   if (toggleMenuStatus === false) {
@@ -41,7 +41,17 @@ window.toggleMenu = function () {
     toggleMenuStatus = false;
   }
 };
-// add afterbegin of navHistoryArticle to historyElements
+// info toggle
+let toggleInfoStatus = false;
+window.toggleInfo = function () {
+  if (toggleInfoStatus === false) {
+    infoButton.style.visibility = 'visible';
+    toggleInfoStatus = true;
+  } else if (toggleInfoStatus === true) {
+    infoButton.style.visibility = 'hidden';
+    toggleInfoStatus = false;
+  }
+};
 
 hamburger.addEventListener('click', () => {
   // hamburger animation trigger
