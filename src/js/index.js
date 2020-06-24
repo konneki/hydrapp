@@ -11,8 +11,8 @@ const navInfoButton = document.querySelector('.navigation__info-button');
 const menuButton = document.querySelector('.navigation__content');
 const historyButton = document.querySelector('.navigation__history-content');
 const historyElements = document.querySelector('.navigation__history-grid');
+let historyArticles;
 
-const historyArticles = `<article class="navigation__history-element"><h2 class="navigation__history-element-header">Monday, 26.06</h2><p class="navigation__history-element-text"> Cups drunk: <span class="cups-count--js">8</span></p><p class="navigation__history-element-text">Daily water intake: <span class="percentage--js">20%</span></p></article>`;
 const hamburger = document.querySelector('.hamburger');
 
 let percentCounter = document.querySelectorAll('.percent-counter--js');
@@ -82,6 +82,14 @@ if (entry) {
 } else {
   for (let i = 0; i < counterSelector.length; i++) {
     counterSelector[i].innerHTML = counter;
+    localStorage.setItem(
+      key,
+      JSON.stringify({
+        day: keyDay,
+        month: keyMonth,
+        value: counter,
+      })
+    );
   }
 }
 
@@ -162,5 +170,22 @@ window.toggleInfo = () => {
 };
 
 // use history saved in localstorage and implement it into the history layout
-
+const storageArrayEntries = Object.entries(localStorage);
+for (let [key, value] of storageArrayEntries) {
+  if (value !== 'INFO') {
+    let cupsAmount = JSON.parse(value).value;
+    const calc = () => {
+      percentage = (cupsAmount / 15) * 100;
+      return Math.round(percentage);
+    };
+    historyArticles = `<article class="navigation__history-element"><h2 class="navigation__history-element-header">${key.slice(
+      8,
+      10
+    )}.${key.slice(
+      5,
+      7
+    )}</h2><p class="navigation__history-element-text"> Cups drunk: <span class="cups-count--js">${cupsAmount}</span></p><p class="navigation__history-element-text">Daily water intake: <span class="percentage--js">${calc()}%</span></p></article>`;
+    historyElements.insertAdjacentHTML('beforeend', historyArticles);
+  }
+}
 // localStorage.clear();
