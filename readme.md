@@ -1,18 +1,15 @@
-![cover](https://cotenfrontend.pl/img/cover.png)
+![cover](https://konneki.github.io/hydrapp/og.png)
 
-# WTF Webpack Starter Kit 
+# Hydrapp
 
-Simple toolkit for your static websites development.
+Lets you count the amount of glasses to drink everyday.
 
 ## How to use it?
 
-Click on `Use this template` button to generate a new repository based on this starter kit. After that clone it to your computer, go to the project directory in console and type `npm install`.
+You can LMB on plus or minus signs to change value, or you can use +, up arrow or right arrow to increase value and -, down arrow or left arrow to decrese value. It is as simple as that.
+Thanks to localStorage you can check your stats in time by date.
+After opening menu you can clearly see a percentage indicator of drunk water. Aim for 15 cups!
 
-## Available scripts
+## Mobile version coming soon!
 
-`npm run start` - runs development mode
-
-`npm run build` - runs build process for production
-
-`npm run publish` - runs build process and publish the page using `gh-pages` branch
-
+And remember, stay hydrated!
