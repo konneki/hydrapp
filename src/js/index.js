@@ -1,8 +1,8 @@
 import '../scss/main.scss';
 
 // uncomment the lines below to enable PWA
-// import {registerSW} from './pwa.js';
-// registerSW();
+import {registerSW} from './pwa.js';
+registerSW();
 
 const add = document.querySelector('.flex__add--js');
 const subtract = document.querySelector('.flex__subtract--js');
@@ -20,9 +20,9 @@ let counterSelector = document.querySelectorAll('.main-counter--js');
 let counter = 0;
 let percentage;
 
-const key = new Date().toISOString().slice(0, 10);
-const keyDay = key.slice(8, 10);
-const keyMonth = key.slice(5, 7);
+const key = new Date().toLocaleString().slice(0, 10);
+const keyDay = key.slice(0, 2);
+const keyMonth = key.slice(3, 5);
 
 hamburger.addEventListener('click', () => {
   // hamburger animation trigger
@@ -35,7 +35,6 @@ const percentageCalc = () => {
   for (let i = 0; i < percentCounter.length; i++) {
     percentCounter[i].innerHTML = `${Math.round(percentage)}%`;
   }
-  // percentCounter.innerHTML = `${Math.round(percentage)}%`;
 };
 const updateUI = () => {
   if (counter >= 0) {
@@ -56,11 +55,11 @@ const updateUI = () => {
   }
 };
 const increment = () => {
-  counter += 1;
+  counter++;
   updateUI();
 };
 const decrement = () => {
-  counter -= 1;
+  counter--;
   updateUI();
 };
 
@@ -77,7 +76,14 @@ if (entry) {
     percentageCalc();
   } else {
     // if there is nothing in key, value = '0' (new day)
-    counter = 0;
+    localStorage.setItem(
+      key,
+      JSON.stringify({
+        day: keyDay,
+        month: keyMonth,
+        value: 0,
+      })
+    );
   }
 } else {
   for (let i = 0; i < counterSelector.length; i++) {
@@ -179,13 +185,12 @@ for (let [key, value] of storageArrayEntries) {
       return Math.round(percentage);
     };
     historyArticles = `<article class="navigation__history-element"><h2 class="navigation__history-element-header">${key.slice(
-      8,
-      10
+      0,
+      2
     )}.${key.slice(
-      5,
-      7
+      3,
+      5
     )}</h2><p class="navigation__history-element-text"> Cups drunk: <span class="cups-count--js">${cupsAmount}</span></p><p class="navigation__history-element-text">Daily water intake: <span class="percentage--js">${calc()}%</span></p></article>`;
     historyElements.insertAdjacentHTML('beforeend', historyArticles);
   }
 }
-// localStorage.clear();
