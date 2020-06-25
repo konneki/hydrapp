@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/hydrapp/",
-  "start_url": "/htdrapp/",
+  "start_url": "/hydrapp/",
   "icons": [
     {
       "src": "pwa/manifest-icon-192.png",
