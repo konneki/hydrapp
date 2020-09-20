@@ -1,0 +1,95 @@
+.navigation {
+  &__content {
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    border: 5px solid #000;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+  }
+  &__information-content {
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    border: 5px solid #000;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+  }
+  &__info-button {
+    position: absolute;
+    z-index: 5;
+    top: 3vh;
+    left: 3vw;
+    width: $icon-size;
+    height: $icon-size;
+    cursor: pointer;
+    z-index: 3;
+  }
+  &__text {
+    font-size: 4vw;
+    &--big {
+      font-size: 6vw;
+    }
+    &--small {
+      font-size: 2vw;
+      font-weight: 400;
+    }
+    &--history {
+      font-size: 1.6vw;
+      font-weight: 400;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  &__information-text {
+    width: 60vw;
+    font-weight: 400;
+    font-size: 1em;
+  }
+  @media screen and (max-width: 425px) {
+    &__content {
+      z-index: 3;
+    }
+    &__text {
+      text-align: center;
+      font-size: 2em;
+      &--big {
+        font-size: 2.1em;
+      }
+      &--small {
+        font-size: 1.5em;
+      }
+    }
+    &__history {
+      &-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, 1fr);
+        column-gap: 0;
+      }
+    }
+    &__info-button {
+      width: $icon-size-mobile;
+      height: $icon-size-mobile;
+      top: 94vh;
+      left: 20vw;
+    }
+    &__information-text {
+      width: 80vw;
+      font-size: 0.8em;
+    }
+  }
+}

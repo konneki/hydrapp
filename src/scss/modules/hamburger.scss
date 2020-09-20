@@ -1,0 +1,13 @@
+.hamburger {
+  position: absolute;
+  z-index: 5;
+  top: 3vh;
+  right: 3vw;
+  width: $icon-size;
+  height: $icon-size;
+  cursor: pointer;
+  @media screen and (max-width: 425px) {
+    top: 94vh;
+    right: 20vw;
+  }
+}
