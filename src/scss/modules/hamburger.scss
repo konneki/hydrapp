@@ -1,13 +1,14 @@
 .hamburger {
   position: absolute;
   z-index: 5;
-  top: 3vh;
-  right: 3vw;
+  top: 30px;
+  right: 50px;
   width: $icon-size;
   height: $icon-size;
   cursor: pointer;
-  @media screen and (max-width: 425px) {
-    top: 94vh;
-    right: 20vw;
+  @media screen and (max-width: 768px) {
+    top: unset;
+    bottom: 20px;
+    right: 80px;
   }
 }
