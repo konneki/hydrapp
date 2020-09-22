@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 422 672" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-164,-220)">
+        <g id="glass_with_water" transform="matrix(1,0,0,1,0,-110.789)">
+            <g id="glass" transform="matrix(1,0,0,1,-59.3772,48.17)">
+                <path d="M627.212,327.569C627.797,320.077 625.228,312.68 620.125,307.163C615.021,301.646 607.847,298.509 600.332,298.509C527.975,298.509 340.779,298.509 268.423,298.509C260.907,298.509 253.733,301.646 248.63,307.163C243.527,312.68 240.958,320.077 241.542,327.569C249.683,431.87 277.421,787.278 286.426,902.656C288.034,923.255 305.218,939.151 325.88,939.151L542.874,939.151C563.536,939.151 580.721,923.255 582.328,902.656C591.333,787.278 619.072,431.87 627.212,327.569Z" style="fill:none;stroke:black;stroke-width:30px;"/>
+            </g>
+            <g id="water_fill" transform="matrix(1.03212,0,0,1,-12.1176,-214.056)">
+                <path d="M204.897,667C269.247,626.661 457.668,710.886 545.243,667" style="fill:none;stroke:black;stroke-width:29.52px;"/>
+            </g>
+        </g>
+    </g>
+</svg>
