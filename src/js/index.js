@@ -4,8 +4,8 @@ import '../scss/main.scss';
 import {registerSW} from './pwa.js';
 registerSW();
 
-const add = document.querySelector('.flex__add--js');
-const subtract = document.querySelector('.flex__subtract--js');
+const add = document.querySelector('.grid__add--js');
+const subtract = document.querySelector('.grid__subtract--js');
 const infoButton = document.querySelector('.navigation__information-content');
 const navInfoButton = document.querySelector('.navigation__info-button');
 const menuButton = document.querySelector('.navigation__content');
